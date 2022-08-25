@@ -168,7 +168,6 @@ namespace MovieRecommendationEngine
         private System.Windows.Forms.TextBox textBox6;
 		private TextBox textBox7;
         private Label label1;
-        private LinkLabel linkLabel1;
 	}
 }
 
