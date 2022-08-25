@@ -62,7 +62,7 @@ namespace MovieRecommendationEngine
                 textBox2.ForeColor = Color.Black;
             }
         }
-		private void textBox7_TextChanged_1(object sender, EventArgs e)
+		private void TextBox7_TextChanged_1(object sender, EventArgs e)
 		{
 
 		}
@@ -104,7 +104,7 @@ namespace MovieRecommendationEngine
 
 			// Tried to scrape the places where we could watch a movie. Sometimes it works and sometimes it doesn't - don't know why.
 
-			string movieoffer;
+			/*string movieoffer;
 
 			if (textBox7.Text == "Negative")
 			{
@@ -118,7 +118,7 @@ namespace MovieRecommendationEngine
 				movieoffer = ScrapeMovieOffer(result);
 				textBox7.Text = finalmovie;
 				textBox7.Text = movieoffer;
-			}
+			}*/
 			
 
 		}
@@ -161,6 +161,8 @@ namespace MovieRecommendationEngine
                 return "Negative";
             }
         }
+
+		// Passing the gender data
 		private static List<String> ParseDataForGender(string data)
 		{
 			List<String> information = new();
@@ -169,6 +171,8 @@ namespace MovieRecommendationEngine
 			information.Add(probableGender);
 			return information;
 		}
+
+		//Using the genderize API to check if the input is done by male/female
 		private static string GetAPIDataForGender(string name)
         {
 			WebRequest wr = WebRequest.Create("https://api.genderize.io?name=" + name);
@@ -178,6 +182,8 @@ namespace MovieRecommendationEngine
             string allData = dataReader.ReadToEnd();
             return allData;
         }
+
+		// Scraping the data from the website when the context is being inputted and being searched
 		public static string ScrapeMovie(string movie)
 		{
 			HtmlAgilityPack.HtmlWeb website = new();
@@ -197,6 +203,7 @@ namespace MovieRecommendationEngine
 
 		//I tried to scrape the where the movie is watchable but it seems to be a bug that I couldn't resolve yet
 
+		/*
 		public static string ScrapeMovieOffer(string provider)
 		{
 			HtmlAgilityPack.HtmlWeb website = new();
@@ -212,6 +219,6 @@ namespace MovieRecommendationEngine
 				}
 			}
 			return "No provider was found";
-		}
+		}*/
 	}
 }
